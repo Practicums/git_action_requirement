@@ -1,5 +1,5 @@
 from bs4 import BeautifulSoup
-soup = BeautifulSoup(open('git_action_requirement/white_box_test_html/test_result.html').read(), 'html.parser')
+soup = BeautifulSoup(open('git_action_requirement/white_box_html/test_result.html').read(), 'html.parser')
 soup2 = BeautifulSoup('''
 
   <div class="row aic jsb mb10 pl30"> 
@@ -15,4 +15,4 @@ soup2 = BeautifulSoup('''
 node = soup.find_all("div", class_="unbreakable")[0]
 node.insert(0, soup2)
 
-f = open("git_action_requirement/white_box_test_html/test_changed.html", "w").write(str(soup))
+f = open("git_action_requirement/white_box_html/test_changed.html", "w").write(str(soup))
