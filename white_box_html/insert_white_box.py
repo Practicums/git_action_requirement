@@ -1,6 +1,6 @@
 from bs4 import BeautifulSoup
 import argparse
-soup = BeautifulSoup(open('./white_box_test_html/test_changed.html').read(), 'html.parser')
+soup = BeautifulSoup(open('git_action_requirement/white_box_test_html/test_changed.html').read(), 'html.parser')
 
 node = soup.find_all("div", class_="white_test")[0]
 f = open("./error.txt", encoding='utf-8')
@@ -37,7 +37,7 @@ soup2 = BeautifulSoup('''
 '</div>  ' , 'html.parser'     
 )
 node.insert(0, soup2)
-f = open("white_box_test_html/test_changed.html", "w").write(str(soup))
+f = open("git_action_requirement/white_box_test_html/test_changed.html", "w").write(str(soup))
 
 
 
