@@ -5,6 +5,7 @@ soup = BeautifulSoup(open('git_action_requirement/white_box_html/test_changed.ht
 node = soup.find_all("div", class_="white_test")[0]
 f = open("./error.txt", encoding='utf-8')
 lines = f.readlines()
+print(lines)
 file_name = lines[0]
 print(file_name)
 if len(lines) == 0:
