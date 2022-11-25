@@ -12,6 +12,8 @@ soup2 = BeautifulSoup('''
 <div class="white_test">
 </div>
 ''', 'html.parser')
+soup.find_all("span", class_="ws")[0].replace_with('Black Test Report')
+
 node = soup.find_all("div", class_="unbreakable")[0]
 node.insert(0, soup2)
 
