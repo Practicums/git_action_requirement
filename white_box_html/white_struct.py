@@ -12,7 +12,7 @@ soup2 = BeautifulSoup('''
 <div class="white_test">
 </div>
 ''', 'html.parser')
-soup.find_all("span", class_="ws")[0].replace_with('<span class="row flex1 mw0 fs32 ws">Black Box Test Report</span>')
+soup.find_all("span", class_="ws")[0].string.replace_with('Black Box Test Report')
 
 node = soup.find_all("div", class_="unbreakable")[0]
 node.insert(0, soup2)
