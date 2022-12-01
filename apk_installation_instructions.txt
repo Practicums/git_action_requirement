@@ -1,0 +1,73 @@
+How To Install An APK To A Meta Quest 2
+
+Required:
+Meta Quest 2 device
+Meta Quest 2 link cable
+Smartphone with Meta Quest application
+Facebook account (or equivalent)
+Android SDK Platform-Tools (for ADB)
+
+
+Step 1: Register As A Meta Quest Developer
+
+In order to install APKs to the device directly, you must first register as a Meta Quest developer here: https://developer.oculus.com/sign-up/
+
+
+Step 2: Enable Developer Mode
+
+Sign into the Meta Quest app on your smartphone (if not already logged in) and click on "Menu" on the bottom right. From there, click on "Devices" and locate your device. Scroll down and click on "Developer Mode" to access the toggle for enabling developer mode. Make sure it is toggled to the on position.
+
+
+Step 3: Install Android SDK Platform-Tools
+
+SDK Platform-Tools are included in Android Studio's SDK Manager, but if you'd like to download the standalone tools package, it can be found here: https://developer.android.com/studio/releases/platform-tools
+
+This allows us to run the adb command for installing the APK to our device.
+
+
+Step 4: Connect The Meta Quest 2 With A Link Cable
+
+Make sure your Meta Quest 2 is powered on and connect it to your PC with a link cable. Your device will ask to allow the connect device to access files. Select "Allow".
+
+
+Step 5: Run ADB To Install The APK
+
+---
+Optional: If you do not want to specify the path to the adb executable when running the command, we can add it to our PATH variable.
+
+https://lifehacker.com/the-easiest-way-to-install-androids-adb-and-fastboot-to-1586992378
+
+For Windows:
+- Open Start and look for "View advanced system settings". At the bottom, click on "Environment Variables". Under "System Variables", look for the variable "Path" and click on it before clicking "Edit".
+- For Windows 7 or 8, add "; <folder name> to the end of "Variable value", with the folder name being the path to where Platform Tools is located.
+- For Windows 10, click "New" and paste the folder path to where Platform Tools is located.
+
+For MacOS/Linux:
+- Open a terminal window and enter the following command to open your Bash profile:
+	touch ~/. bash_profile; open ~/.bash_profile
+- Add the following line to the end of the file:
+	export PATH="$HOME/<folder name>/bin:$PATH", with the folder name being the path to where Platform Tools is located.
+- Save the file and exit the text editor.
+- In the terminal, run the following command to run your Bash profile:
+	source ~/.bash_profile
+---
+
+In a terminal, navigate to the directory your APK is located in.
+Please note: Due to email security restrictions, the ".apk" extension is removed from the apk file. The file needs to be renamed to "<filename>.apk" format, before proceeding to the next steps.
+
+If you did not add the ADB executable to PATH in the optional section above, run the command:
+	<path to adb.exe in Platform Tools> install example.apk
+
+Otherwise, open a terminal on your PC and run the following command:
+	abd install example.apk
+
+If needed:
+	adb -d install example.apk
+		forces the install over a USB connection.
+	adb install -r example.apk
+		updates the app if it is already installed.
+
+
+Step 6: Verify Installation
+
+Select "App Library" on the far right of the bottom taskbar. On the top right of the window, select "All (#)" to view the dropdown for categories of apps. Select "Unknown Sources (#)" at the bottom of the list and the window should display your APK as an application in the application list.
